@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.shiyujun</groupId>
-    <artifactId>spring-demo</artifactId>
+    <artifactId>spring-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
