@@ -27,7 +27,6 @@ public class JDBCServiceImpl implements JDBCService {
     }
 
     public void updateNameById(int id, String name) {
-        jdbcTemplate.update("update user set name=? where id=?", new Object[]{name, id}, new UserRowMapper());
-        this.queryById(id);
+        jdbcTemplate.update("update user set name=? where id=?", new Object[]{name, id});
     }
 }
