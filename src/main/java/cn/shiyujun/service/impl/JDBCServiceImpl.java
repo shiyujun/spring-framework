@@ -4,6 +4,7 @@ import cn.shiyujun.entity.User;
 import cn.shiyujun.entity.UserRowMapper;
 import cn.shiyujun.service.JDBCService;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * CreateTime 2019/7/18
  * describe:
  */
+@Transactional
 public class JDBCServiceImpl implements JDBCService {
     private JdbcTemplate jdbcTemplate;
 
@@ -29,5 +31,11 @@ public class JDBCServiceImpl implements JDBCService {
     public void updateNameById(int id, String name) {
         jdbcTemplate.update("update user set name=? where id=?", new Object[]{name, id}, new UserRowMapper());
         this.queryById(id);
+    }
+
+    @Override
+    public void testTransactional() {
+        jdbcTemplate.update("update user set name='王五' where id=1", new Object[]{});
+        throw new RuntimeException("异常");
     }
 }
