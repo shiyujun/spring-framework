@@ -8,7 +8,7 @@ public class JDBCDemo {
     public static void main (String args[]){
         ApplicationContext context = new AnnotationConfigApplicationContext("cn.shiyujun.config");
         JDBCService jdbcService=  context.getBean(JDBCService.class);
-        jdbcService.queryById(1);
         jdbcService.updateNameById(1,"李四");
+        jdbcService.queryById(1);
     }
 }
